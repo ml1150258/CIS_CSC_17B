@@ -1,0 +1,36 @@
+<!--
+    Dr. Mark E. Lehr
+    Testing Local Storage
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create the _Get Object</title>
+        <script type="text/javascript" src="getForm.js"></script>
+    </head>
+
+<body>
+<script type="text/javascript">
+    //Get the information from the local URL
+    var url=document.location.href;
+    //Call the getForm function to place into an object
+    $_GET=getForm(url);
+    //Stringify the object
+    var text=JSON.stringify($_GET);
+    //See what it looks like as a string
+    document.write("The Object Stringified = "+text+"</br>");
+    //Store the object into local storage
+    localStorage.setItem("Testing",text);
+    //Retrieve information from storage
+    var str=localStorage.getItem("Testing");
+    //Parse the string into the object
+    var obj=JSON.parse(str);
+    //Display the components of the object
+    document.write("The Object parsed back from Local Storage</br>");
+    for(property in obj){
+        document.write(property+"="+obj[property]+"</br>");
+    }
+</script>
+</body>
+</html>

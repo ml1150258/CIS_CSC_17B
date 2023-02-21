@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    April 6th, 2019
+    Edit Users
+-->
+<html>
+    <head>
+        <title>Edit a User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="getForm.js"></script>
+               <script type="text/javascript">
+            function fndIndx(obj,pFind,value){
+                //create an indx array for the sort
+                var idx=-1;
+                //Sort the indexed array
+                if(pFind){
+                    for(var pos=0;pos<obj.length;pos++){
+                        var posObj=obj[pos];
+                        if(posObj[pFind]==value){
+                            idx=pos;
+                            break;
+                        }
+                    }
+                }
+                return idx;
+            }
+            function validate(){
+                //Regular Expressions
+                var reName = /^[a-zA-Z0-9]{2,15}$/;
+                var reEmail= /^[_A-Za-z0-9-]+(.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$/;
+                var rePswd = /^[a-fA-F0-9]{40}$/;
+                //Input Values
+                var namev =document.getElementById("name").value;
+                var emailv=document.getElementById("email").value;
+                var pswdv =document.getElementById("pswd").value;
+                var name =document.getElementById("name");
+                var email=document.getElementById("email");
+                var pswd =document.getElementById("pswd");
+                //Check Each
+                var validate=true;
+                if(namev.match(reName)!= null){ 
+                    name.style.color = "#0000ff";
+                }else{
+                    name.value="Name is not Valid";
+                    name.style.color = "#ff0000";
+                    validate=validate&&false;
+                }
+                if(emailv.match(reEmail)!= null){ 
+                    email.style.color = "#0000ff";
+                }else{
+                    email.value="Email is not Valid";
+                    email.style.color = "#ff0000";
+                    validate=validate&&false;
+                }
+                if(pswdv.match(rePswd)!= null){ 
+                    pswd.style.color = "#0000ff";
+                }else{
+                    pswd.value="Password is not Valid";
+                    pswd.style.color = "#ff0000";
+                    validate=validate&&false;
+                }
+                //document.write("In function validate -> validate"+" "+idx+"</br>");
+                if(validate&&idx>-1){
+                    var usrObj=$users[idx];
+                    usrObj['name']=namev;
+                    usrObj['email']=emailv;
+                    usrObj['pswd']=pswdv;
+                    var str=JSON.stringify($users);
+                    var lsObj=localStorage;
+                    lsObj.removeItem("users");
+                    lsObj.setItem("users", str);
+                    location.assign("user_view.html");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>Edit a User</div>
+        
+        <script type="text/javascript">
+            
+            //Grab the $_GET Objects
+            var url=document.location.href;
+	        $_GET=getForm(url);
+            
+            //Initialize the data
+            var $strUser=localStorage.getItem("users");
+            var $users=JSON.parse($strUser);
+            
+            // Check for a valid user name
+            var idx=fndIndx($users,'name',$_GET['name']);
+            if (idx==-1) {
+                var strMsg="error=This page has been accessed in error";
+                location.assign("error.html?"+strMsg);
+            }
+
+            // Create the form:
+            var usrObj=$users[idx];
+            var str='Name: <input type="text" id="name" name="name" size="40" maxlength="40" value="';
+               str+=usrObj['name']+'" /></p>';
+               str+='Email: <input type="text" id="email" name="email" size="40" maxlength="40" value="';
+               str+=usrObj['email']+'" /></p>';            
+               str+='Password: <input type="text" id="pswd" name="pswd" size="40" maxlength="40" value="';
+               str+=usrObj['pswd']+'" /></p>';            
+               str+='<p><input type="submit" value="Edit" onclick="validate()"/></p>';
+            document.write(str);
+
+        </script>
+        
+    </body>
+</html>

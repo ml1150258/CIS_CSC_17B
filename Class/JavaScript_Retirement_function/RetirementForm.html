@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    May 12th, 2021
+    Javascript form which provides inputs to the Retirement Calculator
+-->
+<html>
+    <head>
+        <title>Retirement Calculator Inputs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- uses html form to go to a Javascript page-->
+        <form action="_GET_Retirement.html" method="get">
+            
+            <h1> Inputs for a Retirement Calculator </h1> 
+            
+            <p><b>Input your desired Salary $/Yr:</b></p>
+            Desired Salary = $<input type="text" name="Present_Salary"
+                size="5" value="100000.00" style="text-align:right;">/Yr<br/>
+            
+            <p><b>Input the year to start Retirement:</b></p>
+            Year = $<input type="text" name="yr2Strt"
+                size="3" value="2021" style="text-align:right;"><br/>
+            
+            <p><b>Input your yearly deposit as % of Salary:</b></p>
+                  <input type="radio" id="5" name="Deposit" value="5">
+                  <label for="5%">  5% of Salary/Yr</label><br>
+                  <input type="radio" id="10" name="Deposit" value="10">
+                  <label for="10%">10% of Salary/Yr</label><br>
+                  <input type="radio" id="15" name="Deposit" value="15">
+                  <label for="15%">15% of Salary/Yr</label><br>
+                  <input type="radio" id="20" name="Deposit" value="20">
+                  <label for="20%">20% of Salary/Yr</label><br>
+             
+            <p><b>Input your potential investment rate %:</b></p>
+                  <input type="radio" id="3" name="Invest" value="3">
+                  <label for="3%">3% Investment Rate</label><br>
+                  <input type="radio" id="4" name="Invest" value="4">
+                  <label for="4%">4% Investment Rate</label><br>
+                  <input type="radio" id="5" name="Invest" value="5">
+                  <label for="5%">5% Investment Rate</label><br>
+                  <input type="radio" id="6" name="Invest" value="6">
+                  <label for="6%">6% Investment Rate</label><br>
+                  <input type="radio" id="7" name="Invest" value="7">
+                  <label for="7%">7% Investment Rate</label><br>
+                  
+            <br/><input type="submit" value="Calculate">
+            
+        </form>
+    </body>
+</html>

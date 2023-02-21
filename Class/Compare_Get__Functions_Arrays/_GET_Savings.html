@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    September 11th, 2020
+    Include a function library with arrays utilization
+-->
+<html>
+    <head>
+        <title>Utilize the Savings Javascript Functions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Inserting Libraries -->
+        <script type="text/javascript" src="./JavascriptSavingsFunctions.js">
+        </script>
+        <script type="text/javascript">
+            //Function which retrieves the information
+            //in a form
+            function getForm(url){
+                var info=url.split("?");
+                var nameValuePairs=info[1].split("&");
+                var $_GET = new Object;
+                for(var i=0;i<nameValuePairs.length;i++){
+                    var map=nameValuePairs[i].split("=");
+                    var name=map[0];
+                    var value=map[1];
+                    $_GET[name]=value;
+                }
+                return $_GET;
+            }
+        </script>
+    </head>
+    <body>
+         <script type="text/javascript">
+            //Call the Get function
+            var url=document.location.href;
+            $_GET=getForm(url);
+            //Declare variables
+            var pv=$_GET['Present_Value'];   //Present Value $'s
+            var int=$_GET['Interest_Rate']/100; //Interest Rate %
+            var nYears=$_GET['Periods'];//Number of compounding periods years
+
+            //Perform Calculation / Call the function
+            var fv1=save1(pv,int,nYears);
+            var fv2=save2(pv,int,nYears);
+            var fv3=save3(pv,int,nYears);
+            var fv4=save4(pv,int,nYears);
+            var fv5=save5(pv,int);
+            var fv6={save:0};
+            save6(pv,int,nYears,fv6);
+            var fv7=save7(pv,int,nYears);
+
+            //Display the results
+            document.write("<p>Present Value   = $"+pv+"</p>");
+            document.write("<p>Interest Rate   =  "+int*100+"%</p>");
+            document.write("<p>Number of Years = "+nYears+"</p>");
+            document.write("<p>Future Value    = $"+fv1.toFixed(2)+"</p>");
+            document.write("<p>Future Value    = $"+fv2.toFixed(2)+"</p>");
+            document.write("<p>Future Value    = $"+fv3.toFixed(2)+"</p>");
+            document.write("<p>Future Value    = $"+fv4.toFixed(2)+"</p>");
+            document.write("<p>Future Value    = $"+fv5.toFixed(2)+"</p>");
+            document.write("<p>Future Value    = $"+fv6.save.toFixed(2)+"</p>");
+            display(fv7);	
+        </script>
+    </body>
+</html>

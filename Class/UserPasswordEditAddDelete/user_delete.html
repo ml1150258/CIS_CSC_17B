@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    April 6th, 2019
+    Delete Users
+-->
+<html>
+    <head>
+        <title>Delete a User</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="getForm.js"></script>
+        <script type="text/javascript">
+            function fndIndx(obj,pFind,value){
+                //create an indx array for the sort
+                var idx=-1;
+                //Sort the indexed array
+                if(pFind){
+                    for(var pos=0;pos<obj.length;pos++){
+                        var posObj=obj[pos];
+                        if(posObj[pFind]==value){
+                            idx=pos;
+                            break;
+                        }
+                    }
+                }
+                return idx;
+            }
+            function delUser(){
+                var yes=document.getElementById("Yes");
+                if(yes.checked){
+                    var str="user_delete.html?name="+$_GET['name']+"&sure=Yes";
+                    location.assign(str);
+                }else{
+                    var str="user_delete.html?name="+$_GET['name']+"&sure=No";
+                    location.assign(str);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>Delete a User</div>
+        <script type="text/javascript">
+            //Grab the $_GET Objects
+            var url=document.location.href;
+	    $_GET=getForm(url);
+            
+            //Initialize the data
+            var $strUser=localStorage.getItem("users");
+            var $users=JSON.parse($strUser);
+            
+            // Check for a valid user name
+            var idx=fndIndx($users,'name',$_GET['name']);
+            if (idx==-1) {
+                var strMsg="error=This page has been accessed in error";
+                location.assign("error.html?"+strMsg);
+            }
+
+            // Check if the form has been submitted:
+            if ($_GET['sure'] == 'Yes' && idx > -1) {
+                
+                $users.splice(idx,1);
+                var str=JSON.stringify($users);
+                var lsObj=localStorage;
+                lsObj.removeItem("users");
+                lsObj.setItem("users", str);
+                location.assign("user_view.html");
+                
+            } if ($_GET['sure'] == 'No') {
+
+                location.assign("user_view.html");
+
+            } else {
+                var str="<p> Delete user Name = "+$_GET['name']+" ? </p>";
+                   str+='<input id="Yes" type="radio" name="sure" value="Yes" /> Yes';
+                   str+='<input id="No"  type="radio" name="sure" value="No" checked="checked" /> No';
+                   str+='<input type="submit" name="submit" value="Delete" onclick="delUser()"/>';
+                document.write(str);
+
+            } // End of the main submission conditional.
+            
+        </script>
+    </body>
+</html>

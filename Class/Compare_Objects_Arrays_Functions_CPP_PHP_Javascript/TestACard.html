@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+/* 
+ * File:   main.cpp
+ * Author: Dr. Mark E. Lehr
+ * Created on September 4, 2020, 6:08 PM
+ * Purpose:  To compare C++, Javascript and PHP arrays, objects and functions
+ */
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <title>Play and Display a Card Deck</title>
+        <script type="text/javascript" src="Card.js"></script>
+    </head>
+
+    <body>
+        <script language="JavaScript" type="text/javascript">
+            //Test the Cards by creating a deck then printing the result
+            var nCards=52;
+            var deck=new Array(nCards);
+            for(var i=0;i<deck.length;i++){
+                deck[i]=new Card(i);
+                deck[i].toString();
+            }
+        </script>
+    </body>
+</html>

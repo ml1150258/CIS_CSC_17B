@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    September 11th, 2020
+    PHP form
+-->
+<html>
+    <head>
+        <title>PHP Form</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <!-- uses html form data and submits to get_grade.php in order to use grade submitted by user as       variable -->
+        <form action="_POST_Savings.php" method="post">
+            <h1> Inputs for a Savings Calculator </h1> 
+            Present Value = $<input type="text" name="Present_Value" size="1"
+                                value="100" style="text-align:right;"><br/>
+            Interest Rate = <input type="text" name="Interest_Rate" size="3"
+                                value="6" style="text-align:right;">%<br/>
+            Periods       = <input type="text" name="Periods" size="8" 
+                                value="12" style="text-align:right;">years<br/>
+            <br/><input type="submit" value="Calculate">
+        </form>
+    </body>
+</html>

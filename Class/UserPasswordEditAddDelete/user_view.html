@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    April 6th, 2019
+    View Users
+-->
+<html>
+    <head>
+        <title>Display the User Table</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="getForm.js"></script>
+        <script type="text/javascript">
+            function srtIndx(obj,pToSrt){
+                //create an indx array for the sort
+                var idx=[];
+                for(var pos=0;pos<obj.length;pos++){
+                    idx[pos]=pos;
+                }
+                //Sort the indexed array
+                if(pToSrt){
+                    for(var pos=0;pos<obj.length-1;pos++){
+                        var posObj=obj[idx[pos]];
+                        for(var lst=pos+1;lst<obj.length;lst++){
+                            var lstObj=obj[idx[lst]];
+                            if(posObj[pToSrt]>lstObj[pToSrt]){
+                                var temp=idx[pos];
+                                idx[pos]=idx[lst];
+                                idx[lst]=temp;
+                            }
+                        }
+                    }
+                }
+                return idx;
+            }
+        </script>
+    </head>
+    <body>
+        <div>Display the User Table</div>
+        
+        <script type="text/javascript">
+            
+            //Grab the $_GET Objects
+            var url=document.location.href;
+	        $_GET=getForm(url);
+            
+            //Initialize the data
+            var $strUser=localStorage.getItem("users");
+            var $users=JSON.parse($strUser);
+            var indx=srtIndx($users,$_GET['sort']);
+            
+            var $display = 7;
+            var $pages=0;
+            var $start=0;
+
+            // Determine how many pages there are...
+            if ($_GET['p'] > 0) {
+                    $pages = $_GET['p'];
+            } else {
+                    var $records = $users.length;
+                    // Calculate the number of pages...
+                    if ($records > $display) { // More than 1 page.
+                            $pages = Math.ceil ($records/$display);
+                    } else {
+                            $pages = 1;
+                    }
+            }
+
+            // Determine where in the database to start returning results...
+            if (parseInt($_GET['s'], 10)>0){
+                    $start = $_GET['s'];
+            } else {
+                    $start = 0;
+            }
+            
+            // Determine the sort...
+            var $sort = ($_GET['sort'] ? $_GET['sort'] : 'name');
+
+            // Determine the sorting order:
+            switch ($sort) {
+                    case 'name':
+                            $order_by = 'name';
+							$sort = 'name';
+                            break;
+                    case 'email':
+                            $order_by = 'email';
+							$sort = 'email';
+                            break;
+                    case 'pswd':
+                            $order_by = 'pswd';
+							$sort = 'pswd';
+                            break;
+                    default:
+                            $order_by = 'name';
+                            $sort = 'name';
+                            break;
+            }
+
+            // Define the query:
+            //$q = "SELECT last_name, first_name, DATE_FORMAT(registration_date, '%M %d, %Y') AS dr, user_id FROM users ORDER BY $order_by LIMIT $start, $display";		
+
+            // Table header:
+            var strTab='<table align="center" cellspacing="0" cellpadding="5" width="75%">';
+                strTab+='<tr>';
+                    strTab+='<td align="left"><b>Edit</b></td>';
+                    strTab+='<td align="left"><b>Delete</b></td>';
+                    strTab+='<td align="left"><b><a href="user_view.html?sort=name">Name</a></b></td>';
+                    strTab+='<td align="left"><b><a href="user_view.html?sort=email">Email</a></b></td>';
+                    strTab+='<td align="left"><b><a href="user_view.html?sort=pswd">Password</a></b></td>';
+                strTab+='</tr>';
+            document.write(strTab);
+
+            // Fetch and print all the records....
+            var $end=$users.length;
+			//document.write("end = "+$end+" start = "+$start+" $display = "+$display+"</br>");
+            if($end-$start>$display)$end=1*$start+$display;
+			//document.write("end = "+$end+" start = "+$start+" $display = "+$display+"</br>");
+            var $bg = '#eeeeee'; 
+            for (var i=$start;i<$end;i++){
+                    var $usrs=$users[indx[i]];
+                    $bg = ($bg=='#eeeeee' ? '#ffffff' : '#eeeeee');
+                    var strRow= '<tr bgcolor="'+$bg+'">';
+                            strRow+=('<td align="left"><a href="user_edit.html?name='+$usrs['name']+'">Edit</a></td>');
+                            strRow+=('<td align="left"><a href="user_delete.html?name='+$usrs['name']+'">Delete</a></td>');
+                            strRow+=('<td align="left">'+$usrs['name']+'</td>');
+                            strRow+=('<td align="left">'+$usrs['email']+'</td>');
+                            strRow+=('<td align="left">'+$usrs['pswd']+'</td>');
+                        strRow+='</tr>';
+                    document.write(strRow);
+            }
+
+            document.write('</table>');
+
+            // Make the links to other pages, if necessary.
+            if ($pages > 1) {
+
+                    document.write('<br /><p>');
+                    $current_page = Math.floor($start/$display) + 1;
+
+                    // If it's not the first page, make a Previous button:
+                    if ($current_page != 1) {
+                            document.write('<a href="user_view.html?s=',($start - $display),'&p=',$pages,'&sort=',$sort,'">Previous</a> ');
+                    }
+
+                    // Make all the numbered pages:
+                    for (var $i = 1; $i <= $pages; $i++) {
+                            if ($i != $current_page) {
+                                    document.write('<a href="user_view.html?s=',(($display * ($i - 1))),'&p=',$pages,'&sort=',$sort,'">',$i,'</a> ');
+                            } else {
+                                    document.write($i,' ');
+                            }
+                    } // End of FOR loop.
+
+                    // If it's not the last page, make a Next button:
+                    if ($current_page != $pages) {
+                            document.write('<a href="user_view.html?s=',(1*$start + $display),'&p=',$pages,'&sort=',$sort,'">Next</a>');
+                    }
+
+                    document.write('</p>'); // Close the paragraph.
+					//document.write("pages = "+$pages+" current page = "+$current_page+"</br>");
+
+            } // End of links section.
+			//document.write("pages = "+$pages+" current page = "+$current_page+"</br>");
+
+        </script>
+        
+    </body>
+</html>
