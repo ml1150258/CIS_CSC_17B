@@ -1,0 +1,30 @@
+<!--
+	Dr. Mark E. Lehr
+	Testing Local Storage
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create the _Get Object</title>
+        <script type="text/javascript" src="getForm.js"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            //Retrieve the information from local storage
+            var str=localStorage.getItem("Inventory");
+            //Parse the information back into an array
+            var inventory=JSON.parse(str);
+            document.write(str+"</br>");
+            //Display the array
+            for(var items=0;items<inventory.length;items++){
+                document.write("The "+items+" Object</br>");
+                var obj=inventory[items];
+                for(var property in obj){
+                    document.write(property+"="+obj[property]+"</br>");
+                }
+            }
+        </script>
+    </body>
+</html>

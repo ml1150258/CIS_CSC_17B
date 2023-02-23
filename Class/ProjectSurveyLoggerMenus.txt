@@ -1,0 +1,70 @@
+Survey Menu
+	Admin
+	    Login
+		View Users
+			Delete
+			Edit
+			Return to Menu
+		View Surveys
+			Delete
+			Add
+			Edit
+			Return to Menu
+		View User-Survey Results
+			Question
+				All
+				Individual Display
+		Questions/List of Questions
+			Delete
+			Add
+			Return to Menu
+		Survey Composition/List of Surveys/Choose
+			Delete Questions
+			Add Questions
+	User
+		Login
+			View Surveys
+				Choose 1 Item and Display Details
+					Display Questions/Answer Questions
+					Return to Menu
+			View Account
+				Edit Account Details
+				Return to Menu
+			Exit
+		Create Account
+			Create
+			Exit to Login
+			
+Logger Menu
+	Admin
+		Login
+		View Users
+			Delete
+			Edit
+			Return to Menu
+		Create Lab Sections
+			Delete
+			Add
+			Edit
+			Return to Menu
+		View User Hours
+			Edit
+				Add
+				Delete
+			Review - Day/Week/Semester
+				User Aggregate
+				Section Aggregate
+				Entire Aggregate
+			Return to Menu
+	Admin - Instructor
+		Login 
+		Same as above but only at the class level
+	User
+		Login
+			Choose Lab Section
+				View Hours
+				Return to Menu
+				Sign In/Out
+		Create Account
+			Create
+			Exit to Login

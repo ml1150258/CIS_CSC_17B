@@ -1,0 +1,58 @@
+Survey Menu
+	Admin
+		View Users
+			Delete
+			Edit
+			Return to Menu
+		View Surveys
+			Delete
+			Add
+			Edit
+			Return to Menu
+		View User-Survey Results
+			Question
+				All
+				Individual Display
+		Questions/List of Questions
+			Delete
+			Add
+			Return to Menu
+		Survey Composition/List of Surveys/Choose
+			Delete Questions
+			Add Questions
+	User
+		Login
+			View Surveys
+				Choose 1 Item and Display Details
+					Display Questions/Answer Questions
+					Return to Menu
+			View Account
+				Edit Account Details
+				Return to Menu
+			Exit
+		Create Account
+			Create
+			Exit to Login
+			
+Time Logger Menu
+	Admin
+		View Users - Students vs. Instructors
+			Delete
+			Edit
+			Return to Menu
+		View Results
+			Filter by Class
+			Filter by Student
+		View Table Elements
+		    Delete
+			Add
+			Edit
+	User
+		Login
+			View Time
+			   Individual Dates
+			   Cumulative hours
+			Exit
+		Create Account
+			Create
+			Exit to Login

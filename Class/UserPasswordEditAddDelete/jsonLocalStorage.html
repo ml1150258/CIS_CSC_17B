@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    April 6th, 2019
+    Local Storage
+-->
+<html>
+    <head>
+        <title>Storing the Users</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="users.js"></script>
+    </head>
+    <body>
+        <div>Storing the Users</div>
+        <script>
+            //Display the users
+            document.write("Length of users array = "+users.length+"</br>");
+            for(var i=0;i<users.length;i++){
+                var obj=users[i];
+                for(var prop in obj){
+                    document.write(prop+"="+obj[prop]+"</br>");
+                }
+             }
+            //Convert to a string
+            var str=JSON.stringify(users);
+            document.write(str);
+            var object=JSON.parse(str);
+            //Display the users
+            document.write("Length of users array = "+object.length+"</br>");
+            for(var i=0;i<object.length;i++){
+                var obj=object[i];
+                for(var prop in obj){
+                    document.write(prop+"="+obj[prop]+"</br>");
+                }
+             }
+            //Testing Local Storage
+            var lsObj=localStorage;
+            lsObj.clear();
+            document.write("</br> Display all the local storage before setting </br>");
+            for(var name in lsObj){
+                    document.write(name+"="+lsObj[name]+"<br/>");
+            }
+            //Set a property in local storage
+            //With the api
+            lsObj.setItem("users", str);
+            document.write("</br> Display all the local storage after setting </br>");
+            for(var name in lsObj){
+                    document.write(name+"="+lsObj[name]+"<br/>");
+            }
+        </script>
+    </body>
+</html>

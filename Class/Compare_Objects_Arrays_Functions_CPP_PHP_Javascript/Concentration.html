@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Concentration</title>
+        <script type="text/javascript" src="Card.js"></script>
+        <script type="text/javascript" src="ConcCookie.js"></script>
+        <script type="text/javascript">
+
+            //Setup Global Variables for the Page
+            var username=getCookie('username');
+            var deck=new Array();
+            var temparray = new Array();
+            var gameBoard=new Array();
+            var clickable=true;
+            var ctr=0;
+            var correct=0;
+            var clicked=new Array(0,1);
+
+            //Initializes the Deck and the Game Board
+            function start(){	
+                //Create a deck of 52 cards
+                var nCards=52;
+                var card=new Array(nCards);
+                for(var i=0;i<card.length;i++){
+                    card[i]=new Card(i);
+                }
+                //Shuffle the cards by first creating an indexed array
+                var idx=new Array(nCards);
+                for(var i=0;i<idx.length;i++){
+                    idx[i]=i;
+                }
+                //Now mix up the indexed array
+                for(var i=0;i<idx.length;i++){
+                    var temp=Math.random()*51;
+                    temp=temp.toFixed(0);
+                    temp=parseInt(temp);
+                    //Swap positions
+                    var val=idx[i];
+                    idx[i]=idx[temp];
+                    idx[temp]=val;
+                }
+                //Put the cards in the Deck
+                for(var i=0;i<52;i++){
+                    deck[i]=card[idx[i]];
+                }
+                //Place the choosen cards on the Game Board
+                for(var i=0;i<36;i++){
+                    if(i<18){
+                        gameBoard[i]=deck[idx[i]];
+                    }else{
+                        gameBoard[i]=deck[idx[i-18]];	
+                    }
+                }
+                randomize()
+            }
+
+            function randomize(){
+                for(q=0;q<7;q++){
+                    for(h=0;h<36;h++){
+                        temparray[0] = Math.floor(Math.random()*36);
+                        temparray[1] = gameBoard[temparray[0]];
+                        temparray[2] = gameBoard[h];
+                        gameBoard[h] = temparray[1];
+                        gameBoard[temparray[0]] = temparray[2];
+                    }
+               }
+               document.Form.player.value=username;
+            }
+
+            function revealImage(current){
+                if(clickable){
+                    clickable = false; 
+                    document.Form["card"+current].src = gameBoard[current].picture;
+                    if(ctr==0){
+                        clicked[0] = current;
+                        clickable = true;
+                        ctr++;
+                    }
+                }else{
+                    document.Form["card"+current].src = gameBoard[current].picture;
+                    clicked[1] = current;
+                    ctr = 0;
+                    setTimeout('compare()', 300);
+                }
+            }
+
+            function compare(){
+                if(gameBoard[clicked[0]]==gameBoard[clicked[1]]){
+                    correct++;
+                    document.Form.pairsCorrect.value = correct / 2+" Pair";
+                    document.getElementById("cardImg"+clicked[0]).removeAttribute("onClick");
+                    document.getElementById("cardImg"+clicked[1]).removeAttribute("onClick");
+                    document.getElementById("cardImg"+clicked[0]).removeAttribute("href");
+                    document.getElementById("cardImg"+clicked[1]).removeAttribute("href");
+                    clickable = true;
+                }else if(gameBoard[clicked[0]]!=gameBoard[clicked[1]]){
+                    document.Form["card"+clicked[0]].src = "Cards/Back.jpg";
+                    document.Form["card"+clicked[1]].src = "Cards/Back.jpg";
+                    clickable = true;
+                }
+                if(correct>=36){
+                    alert("Congratulations!\n");
+                    javascript:location.reload(true);
+                }
+            }
+
+            function nameButton(){
+                document.write('<div align="left"><INPUT NAME="player" value="'+username+'" READONLY></div>');
+                document.write('<div align="right"><input name="newGame" value="New Game" type="button" onClick="javascript:location.reload(true)" /></div>');
+            }
+        </script>
+    </head>
+
+    <body OnLoad="checkCookie(),start()" background="Cards/Table.jpg">
+        <form NAME="Form"> 
+            <script type="text/javascript">
+                document.write('<div align="right"><input name="newGame" value="New Game" type="button"');
+                document.write('onClick="javascript:location.reload(true)" /></div>');
+                document.write('<div align="center"><INPUT NAME="player" value="'+username+'" READONLY size="12">');
+                document.write('<INPUT NAME="pairsCorrect" value="0 Pair" READONLY size="12"></div>');
+                document.write('<table align="center" border="0">');
+                    var cardCount=0;
+                    start();
+                    for(row=0;row<6;row++){
+                        document.write('<tr>');
+                        for(col=0;col<6;col++){
+                            document.write('<td align="center">');
+                            document.write('<a href="javascript:revealImage('+cardCount+')" id="cardImg'+cardCount+'"'); 
+                            document.write('onClick="revealImage('+cardCount+')">');
+                            document.write('<img src="Cards/Back.jpg" name="card'+cardCount+'" border="0"></a></td>');
+                            cardCount++;
+                        }
+                        document.write('</tr>');
+                    }
+                document.write('</table>');
+            </script>
+        </form>
+    </body>
+</html>

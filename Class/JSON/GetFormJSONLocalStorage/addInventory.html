@@ -1,0 +1,42 @@
+<!--
+	Dr. Mark E. Lehr
+	Testing Local Storage
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create the _Get Object</title>
+        <script type="text/javascript" src="getForm.js"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            //Get the information from the local URL
+            var url=document.location.href;
+            //Call the getForm function to place into an object
+            var $_GET=getForm(url);
+            //Retrieve from Inventory
+            var str=localStorage.getItem("Inventory");
+            //Parse the inventory to an object
+            var inventory=JSON.parse(str);
+            //How many products are in inventory
+            var number=inventory.length;
+            //Add our new product to inventory
+            inventory[number]=$_GET;
+            //Display the array of objects
+            document.write("The Object adding new product then parsed back to Local Storage</br>");
+            for(var items=0;items<inventory.length;items++){
+                document.write("Object "+items+"</br>");
+                var obj=inventory[items];
+                    for(var property in obj){
+                        document.write(property+"="+obj[property]+"</br>");
+                    }
+            }
+            //Put back the object into local storage after adding
+            var str=JSON.stringify(inventory);
+            localStorage.setItem("Inventory",str);
+    </script>
+    </body>
+</html>

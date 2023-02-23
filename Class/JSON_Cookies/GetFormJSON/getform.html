@@ -1,0 +1,59 @@
+<!-- 
+    Dr. Mark E. Lehr
+    Example for CSC/CIS 17B
+        Object serialization
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create the _Get Object</title>
+        <script type="text/javascript" src="getForm.js"></script>
+        <script type="text/javascript" src="Question.js"></script>
+        <script type="text/javascript" src="cookieFunctions.js"></script>
+    </head>
+
+    <body>
+    <script type="text/javascript">
+        
+        //Grab the info from the form
+        var url=document.location.href;
+        $_GET=getForm(url);
+        var counter=0;
+        var answers=[];
+        for(property in $_GET){
+            var str=$_GET[property];          //Place property value in string
+            var dec=decodeURIComponent(str);  //Convert to ascii
+            //https://regex101.com/
+            //https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
+            //http://www.mkyong.com/regular-expressions/10-java-regular-expression-examples-you-should-know/
+            var clean=dec.replace(/\++/g,' ');//Remove + and replace by space
+            $_GET[property]=clean;            //Cleaned values
+            counter++;
+            if(counter>2&&clean!="")answers.push(clean); //Place answers int their own array
+        }
+        
+        //Fill the Question with form information and display
+        var a=new Question($_GET["Number"],$_GET["Question"],answers);
+        a.display();
+        
+        //Use JSON to turn into a string
+        var text=JSON.stringify(a);
+        
+        //Write the cookie and check it out
+        setCookie("object",text,1);
+        checkCookie("object");
+        document.write(getCookie("object")+"</br>");
+        
+        
+        //Reconstitue the JSON object back into a question object
+        var b=new Question(obj);
+        b.display();
+        
+        alert("We are now going to php page to process the object through a Cookie");
+        
+        
+    </script>
+        <button onclick="window.location.assign('cookieTransferObject.php')">Click me</button>
+    </body>
+</html>

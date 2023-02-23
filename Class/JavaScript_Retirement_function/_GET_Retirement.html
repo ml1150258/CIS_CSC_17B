@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+    Dr. Mark E. Lehr
+    May 12th, 2021
+    Calculate the Year to Retire, Savings at Retirement, 
+-->
+<html>
+    <head>
+        <title>Utilize the Savings Javascript Functions</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Inserting Libraries -->
+        <script type="text/javascript">
+            //Function which retrieves the information
+            //in a form
+            function getForm(url){
+                var info=url.split("?");
+                var nameValuePairs=info[1].split("&");
+                var $_GET = new Object;
+                for(var i=0;i<nameValuePairs.length;i++){
+                    var map=nameValuePairs[i].split("=");
+                    var name=map[0];
+                    var value=map[1];
+                    $_GET[name]=value;
+                }
+                return $_GET;
+            }
+            //This function calculates retirement savings and if the goal
+            //has been reached.
+            //Inputs
+            //     savList->List containing retirement savings in $'s each year
+            //     invRate->Investement Rate %/year in decimal
+            //     yrlyDep->Yearly Deposit in $'s
+            //     savGoal->Savings Goal in $'s
+            //Outputs
+            //     savList->Yearly Savings calculated and stored in an List
+            //     reached->Was the savings goal achieved?
+            function retirement(savList,invRate,yrlyDep,savGoal){
+                //Initialize the year and Savings
+                savList[0] = 0.0;   //Start the savings List at 0 in year 0
+                var mxWrkYrs = 50;  //Maximum years to work before retiring
+                var reached = false;//Indicate if savings goal has been attained
+                //Loop until Savings Goal reached or Max work years
+                for(var year=1; year <= mxWrkYrs && !reached; year++){
+                    //Recieve interest on savings each year
+                    savList[year] = savList[year-1] * (1.0+invRate);
+                    //Add the yearly deposit
+                    savList[year] += yrlyDep;
+                    //Determine if the savings goal has been reached
+                    if(savList[year] > savGoal){
+                        reached = true;
+                    }
+                }
+                return reached;                      //Return when Goal reached
+            }
+        </script>
+    </head>
+    <body>
+         <script type="text/javascript">
+            //Call the Get function
+            var url=document.location.href;
+            $_GET=getForm(url);
+            //Initialize and Declare variables
+            var salary  = $_GET['Present_Salary'];   //Present Salary $'s/Yr
+            var deposit = $_GET['Deposit']/100;      //Deposit Rate %
+            var invRate = $_GET['Invest']/100;       //Investment Rate %
+            var yr2Strt = $_GET['yr2Strt'];          //Year to Start Retirement
+ 
+            //Perform Calculation to start the savings
+            var savGoal = salary/invRate;            //Savings Goal $'s
+            var yrlyDep = salary*deposit;            //Yearly Deposit $'s
+            
+            //Calaculate time to retirement in a savings List and
+            //determine if savings goal has been reached
+            var savings    = new Array();//Savings List
+            var isGoal     = retirement(savings,invRate,yrlyDep,savGoal);
+            var yrs2Retire = savings.length - 1;//When to retire
+            var retireDate = parseInt(yr2Strt) + yrs2Retire;//Add to present year
+
+            //Display the results
+            document.write("<p>Desired Salary   = $"+salary+"</p>");
+            document.write("<p>Deposit Rate     =  "+deposit*100+"%</p>");
+            document.write("<p>Investment Rate  =  "+invRate*100+"%</p>");
+            document.write("<p>Year to Start    =  "+yr2Strt+"</p>");
+            document.write("<p>Savings Goal     = $"+savGoal.toFixed(2)+"</p>");
+            document.write("<p>Yearly Deposit   = $"+yrlyDep.toFixed(2)+"</p>");
+            document.write("<p>Years to Retire  =  "+yrs2Retire+"</p>");
+            document.write("<p>Savings At Retirement  =  $"
+                    +savings[yrs2Retire].toFixed(2)+"</p>");
+            document.write("<p>Retirement Date  =  "+retireDate+"</p>");
+            if(!isGoal){
+               document.write("<p>Consider increasing your yearly Deposit</p>");
+            }
+
+        </script>
+    </body>
+</html>

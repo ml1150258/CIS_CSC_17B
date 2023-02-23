@@ -1,0 +1,35 @@
+<!--
+	Dr. Mark E. Lehr
+	Testing Local Storage
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Create the _Get Object</title>
+        <script type="text/javascript" src="getForm.js"></script>
+    </head>
+
+    <body>
+        <script type="text/javascript">
+            //Create an array with 2 objects
+            var inventoryItem1={"Product":"Chicken","Inventory":"155","Price":"3.55"};
+            var inventoryItem2={"Product":"Milk","Inventory":"203","Price":"2.33"};
+            var inventory=[];
+            inventory[0]=inventoryItem1;
+            inventory[1]=inventoryItem2;
+            //Display the array
+            for(var items=0;items<inventory.length;items++){
+                document.write("The "+items+" Object</br>");
+                var obj=inventory[items];
+                for(var property in obj){
+                    document.write(property+"="+obj[property]+"</br>");
+                }
+            }
+            //Stringify the array
+            var str=JSON.stringify(inventory);
+            //Store into local Storage
+            localStorage.setItem("Inventory",str);
+        </script>
+    </body>
+</html>
