@@ -1,542 +1,602 @@
 
 Structure Contents Record = 0
-     A
-   529
-  1575
+     C
+   871
+  1448
 
 
 Structure Contents Record = 1
-     L
-   958
-  1057
+     K
+   480
+  1814
 
 
 Structure Contents Record = 2
      Z
-   570
-  1508
+   581
+  1514
 
 
 Structure Contents Record = 3
-     E
-   596
-  1650
+     P
+   931
+  1044
 
 
 Structure Contents Record = 4
-     N
-   709
-  1717
+     D
+   411
+  1612
 
 
 Structure Contents Record = 5
-     Y
-   183
-  1061
+     S
+   198
+  1097
 
 
 Structure Contents Record = 6
-     D
-   374
-  1226
+     R
+   286
+  1853
 
 
 Structure Contents Record = 7
-     J
-   341
-  1342
+     Z
+   198
+  1535
 
 
 Structure Contents Record = 8
-     H
-   184
-  1144
+     V
+   373
+  1877
 
 
 Structure Contents Record = 9
-     F
-   371
-  1207
+     Q
+   787
+  1206
 
 
 Structure Contents Record = 10
-     P
-   818
-  1396
+     D
+   345
+  1852
 
 
 Structure Contents Record = 11
      V
-   922
-  1374
+   455
+  1719
 
 
 Structure Contents Record = 12
-     N
-   965
-  1094
+     U
+   545
+  1235
 
 
 Structure Contents Record = 13
-     P
-   829
-  1117
+     K
+   530
+  1266
 
 
 Structure Contents Record = 14
-     P
-   919
-  1408
+     B
+   487
+  1159
 
 
 Structure Contents Record = 15
-     O
-   142
-  1587
+     H
+   226
+  1353
 
 
 Structure Contents Record = 16
-     W
-   421
-  1587
+     X
+   176
+  1551
 
 
 Structure Contents Record = 17
-     W
-   492
-  1761
+     L
+   273
+  1022
 
 
 Structure Contents Record = 18
-     D
-   225
-  1380
+     K
+   256
+  1298
 
 
 Structure Contents Record = 19
-     C
-   340
-  1221
+     E
+   709
+  1450
 
 
 Structure Contents Record = 20
      W
-   732
-  1187
+   288
+  1270
 
 
 Structure Contents Record = 21
-     A
-   784
-  1781
+     V
+   842
+  1871
 
 
 Structure Contents Record = 22
-     F
-   185
-  1346
+     M
+   942
+  1759
 
 
 Structure Contents Record = 23
-     P
-   958
-  1826
+     H
+   687
+  1389
 
 
 Structure Contents Record = 24
-     B
-   540
-  1418
+     E
+   770
+  1269
 
 
 Structure Contents Record = 25
-     G
-   980
-  1743
+     H
+   755
+  1284
 
 
 Structure Contents Record = 26
-     K
-   176
-  1369
+     T
+   157
+  1533
 
 
 Structure Contents Record = 27
-     G
-   198
-  1766
+     R
+   237
+  1619
 
 
 Structure Contents Record = 28
-     S
-   280
-  1319
+     A
+   613
+  1645
 
 
 Structure Contents Record = 29
-     V
-   682
-  1432
+     M
+   863
+  1413
 
 
 Structure Contents Record = 30
-     Q
-   766
-  1089
+     X
+   643
+  1726
 
 
 Structure Contents Record = 31
-     N
-   781
-  1192
+     L
+   183
+  1754
 
 
 Structure Contents Record = 32
-     I
-   273
-  1254
+     K
+   630
+  1547
 
 
 Structure Contents Record = 33
-     X
-   690
-  1302
+     S
+   446
+  1885
 
 
 Structure Contents Record = 34
-     G
-   814
-  1453
+     I
+   141
+  1878
 
 
 Structure Contents Record = 35
-     M
-   938
-  1482
+     U
+   992
+  1265
 
 
 Structure Contents Record = 36
-     R
-   965
-  1378
+     Q
+   773
+  1049
 
 
 Structure Contents Record = 37
-     N
-   763
-  1226
+     A
+   267
+  1014
 
 
 Structure Contents Record = 38
-     Y
-   554
-  1658
+     I
+   533
+  1424
 
 
 Structure Contents Record = 39
-     X
-   717
-  1852
+     Y
+   393
+  1232
 
 
 Structure Contents Record = 40
-     B
-   310
-  1472
+     U
+   140
+  1858
 
 
 Structure Contents Record = 41
-     F
-   228
-  1005
+     M
+   304
+  1798
 
 
 Structure Contents Record = 42
-     U
-   254
-  1819
+     G
+   321
+  1840
 
 
 Structure Contents Record = 43
-     U
-   509
-  1631
+     N
+   187
+  1689
 
 
 Structure Contents Record = 44
-     N
-   357
-  1174
+     D
+   612
+  1568
 
 
 Structure Contents Record = 45
-     Q
-   296
-  1517
+     P
+   227
+  1320
 
 
 Structure Contents Record = 46
-     N
-   343
-  1621
+     F
+   448
+  1653
 
 
 Structure Contents Record = 47
      E
-   923
-  1050
+   251
+  1255
 
 
 Structure Contents Record = 48
-     W
-   228
-  1119
+     C
+   136
+  1299
 
 
 Structure Contents Record = 49
-     A
-   622
-  1228
+     P
+   184
+  1557
 
 
 Structure Contents Record = 50
-     M
-   536
-  1664
+     X
+   854
+  1155
 
 
 Structure Contents Record = 51
-     S
-   353
-  1423
+     F
+   586
+  1312
 
 
 Structure Contents Record = 52
-     H
-   102
-  1658
+     E
+   863
+  1245
 
 
 Structure Contents Record = 53
-     F
-   211
-  1125
+     C
+   687
+  1700
 
 
 Structure Contents Record = 54
-     K
-   558
-  1102
+     B
+   221
+  1611
 
 
 Structure Contents Record = 55
-     X
-   337
-  1037
+     L
+   367
+  1548
 
 
 Structure Contents Record = 56
-     I
-   639
-  1267
+     Q
+   731
+  1372
 
 
 Structure Contents Record = 57
-     F
-   923
-  1075
+     P
+   649
+  1632
 
 
 Structure Contents Record = 58
-     W
-   339
-  1832
+     D
+   135
+  1323
 
 
 Structure Contents Record = 59
-     O
-   813
-  1251
+     L
+   905
+  1478
 
 
 Structure Contents Record = 60
-     X
-   378
-  1577
+     H
+   831
+  1670
 
 
 Structure Contents Record = 61
-     J
-   767
-  1587
+     U
+   276
+  1115
 
 
 Structure Contents Record = 62
-     C
-   361
-  1697
+     Y
+   151
+  1060
 
 
 Structure Contents Record = 63
-     X
-   794
-  1366
+     P
+   970
+  1000
 
 
 Structure Contents Record = 64
-     L
-   761
-  1707
+     W
+   950
+  1651
 
 
 Structure Contents Record = 65
      Q
-   499
-  1397
+   899
+  1276
 
 
 Structure Contents Record = 66
-     A
-   473
-  1257
+     F
+   601
+  1663
 
 
 Structure Contents Record = 67
-     S
-   384
-  1129
+     L
+   538
+  1766
 
 
 Structure Contents Record = 68
-     U
-   122
-  1012
+     E
+   815
+  1416
 
 
 Structure Contents Record = 69
-     U
-   258
-  1363
+     Z
+   346
+  1584
 
 
 Structure Contents Record = 70
-     X
-   986
-  1654
+     Q
+   264
+  1553
 
 
 Structure Contents Record = 71
-     N
-   824
-  1039
+     Z
+   575
+  1362
 
 
 Structure Contents Record = 72
-     X
-   901
-  1732
+     Q
+   493
+  1456
 
 
 Structure Contents Record = 73
-     V
-   670
-  1467
+     I
+   628
+  1456
 
 
 Structure Contents Record = 74
-     X
-   270
-  1044
+     T
+   982
+  1324
 
 
 Structure Contents Record = 75
      B
-   455
-  1803
+   318
+  1266
 
 
 Structure Contents Record = 76
-     N
-   200
-  1854
+     R
+   460
+  1468
 
 
 Structure Contents Record = 77
-     S
-   827
-  1841
+     J
+   630
+  1710
 
 
 Structure Contents Record = 78
-     B
-   120
-  1540
+     G
+   200
+  1722
 
 
 Structure Contents Record = 79
-     X
-   981
-  1081
+     T
+   743
+  1160
 
 
 Structure Contents Record = 80
-     P
-   823
-  1183
+     Z
+   387
+  1262
 
 
 Structure Contents Record = 81
-     H
-   133
-  1621
+     E
+   337
+  1859
 
 
 Structure Contents Record = 82
-     B
-   687
-  1104
+     N
+   524
+  1244
 
 
 Structure Contents Record = 83
-     Q
-   255
-  1497
+     Y
+   394
+  1665
 
 
 Structure Contents Record = 84
-     C
-   696
-  1378
+     Q
+   242
+  1118
 
 
 Structure Contents Record = 85
-     W
-   270
-  1336
+     L
+   644
+  1015
 
 
 Structure Contents Record = 86
-     L
-   210
-  1246
+     O
+   402
+  1717
 
 
 Structure Contents Record = 87
-     W
-   206
-  1877
+     N
+   163
+  1261
 
 
 Structure Contents Record = 88
-     Z
-   871
-  1364
+     D
+   973
+  1334
 
 
 Structure Contents Record = 89
-     A
-   218
-  1631
+     M
+   831
+  1366
+
+
+Structure Contents Record = 90
+     T
+   339
+  1613
+
+
+Structure Contents Record = 91
+     V
+   783
+  1835
+
+
+Structure Contents Record = 92
+     K
+   541
+  1073
+
+
+Structure Contents Record = 93
+     U
+   136
+  1769
+
+
+Structure Contents Record = 94
+     J
+   580
+  1054
+
+
+Structure Contents Record = 95
+     C
+   160
+  1606
+
+
+Structure Contents Record = 96
+     H
+   668
+  1879
+
+
+Structure Contents Record = 97
+     Z
+   684
+  1486
+
+
+Structure Contents Record = 98
+     B
+   430
+  1120
+
+
+Structure Contents Record = 99
+     S
+   143
+  1209
 
 
 Structure Contents Record = 90

@@ -37,7 +37,7 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <standard>8</standard>
+          <standard>4</standard>
         </ccTool>
       </compileType>
       <item path="Test.h" ex="false" tool="3" flavor2="0">

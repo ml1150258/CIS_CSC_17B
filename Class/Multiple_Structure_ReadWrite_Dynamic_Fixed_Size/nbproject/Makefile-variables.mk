@@ -7,21 +7,21 @@ CND_BASEDIR=`pwd`
 CND_BUILDDIR=build
 CND_DISTDIR=dist
 # Debug configuration
-CND_PLATFORM_Debug=Cygwin_1-Windows
-CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin_1-Windows
+CND_PLATFORM_Debug=Cygwin-Windows
+CND_ARTIFACT_DIR_Debug=dist/Debug/Cygwin-Windows
 CND_ARTIFACT_NAME_Debug=multiple_structure_readwrite_dynamic_fixed_size
-CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin_1-Windows/multiple_structure_readwrite_dynamic_fixed_size
-CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin_1-Windows/package
+CND_ARTIFACT_PATH_Debug=dist/Debug/Cygwin-Windows/multiple_structure_readwrite_dynamic_fixed_size
+CND_PACKAGE_DIR_Debug=dist/Debug/Cygwin-Windows/package
 CND_PACKAGE_NAME_Debug=multiplestructurereadwritedynamicfixedsize.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin_1-Windows/package/multiplestructurereadwritedynamicfixedsize.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/Cygwin-Windows/package/multiplestructurereadwritedynamicfixedsize.tar
 # Release configuration
-CND_PLATFORM_Release=Cygwin_1-Windows
-CND_ARTIFACT_DIR_Release=dist/Release/Cygwin_1-Windows
+CND_PLATFORM_Release=Cygwin-Windows
+CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
 CND_ARTIFACT_NAME_Release=multiple_structure_readwrite_dynamic_fixed_size
-CND_ARTIFACT_PATH_Release=dist/Release/Cygwin_1-Windows/multiple_structure_readwrite_dynamic_fixed_size
-CND_PACKAGE_DIR_Release=dist/Release/Cygwin_1-Windows/package
+CND_ARTIFACT_PATH_Release=dist/Release/Cygwin-Windows/multiple_structure_readwrite_dynamic_fixed_size
+CND_PACKAGE_DIR_Release=dist/Release/Cygwin-Windows/package
 CND_PACKAGE_NAME_Release=multiplestructurereadwritedynamicfixedsize.tar
-CND_PACKAGE_PATH_Release=dist/Release/Cygwin_1-Windows/package/multiplestructurereadwritedynamicfixedsize.tar
+CND_PACKAGE_PATH_Release=dist/Release/Cygwin-Windows/package/multiplestructurereadwritedynamicfixedsize.tar
 #
 # include compiler specific variables
 #
